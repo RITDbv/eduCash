@@ -3,7 +3,7 @@ Consists of a react native app with help from expo, Firebase authentication and 
 
 WARNING!!: I have cloned this project from Tama-AI therefore I'm still using the Tama-AI firebase configuration. so add or remove users but don't edit any settings inside the backend folder/online firebase
 
-At this moment we are rushing to get as many screens mocked as possible so the main focus is creating code instead cleaning code from the original code ( Tama-AI )
+At this moment we are rushing to get as many screens mocked as possible so the main focus is creating code instead cleaning them from the original project ( Tama-AI )
 
 ## Run locally
 Get `.env` variables from your favourite dev. Only needed in frontend folder
