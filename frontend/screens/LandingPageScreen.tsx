@@ -10,6 +10,7 @@ import {
 import AvatarComponent from "../theming/AvatarComponent";
 import SmallCircleButtons from "../theming/SmallCircleButtons";
 import FullWidthCard from "../theming/FullWidthCard";
+import GradientBackground from "../theming/GradientBackground";
 
 const LandingPageScreen: React.FC = () => {
   const [isOnline, setIsOnline] = useState(false);
@@ -30,6 +31,7 @@ const LandingPageScreen: React.FC = () => {
   };
 
   return (
+    <GradientBackground>
     <SafeAreaView style={styles.container}>
       <View style={styles.topSection}>
         <View style={styles.avatarAndButtons}>
@@ -76,13 +78,13 @@ const LandingPageScreen: React.FC = () => {
         />
       </View>
     </SafeAreaView>
+    </GradientBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1F1F22",
   },
   topSection: {
     flex: 1,
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     borderRadius: 50,
-    backgroundColor: "#0951BD", // Customize the button color
+    backgroundColor: "#4070b8", // Customize the button color
     margin: 10,
   },
   buttonTitle: {
@@ -134,7 +136,7 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 9,
     padding: 1,
-    marginTop: 8
+    marginTop: 10
   }
 });
 

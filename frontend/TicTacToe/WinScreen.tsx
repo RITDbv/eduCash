@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import GameStatsChart from '../theming/GameStatsChart';
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation hook
+import GradientBackground from '../theming/GradientBackground';
 
 const WinScreen: React.FC = () => {
   const navigation = useNavigation(); // Get the navigation object
@@ -14,6 +15,7 @@ const WinScreen: React.FC = () => {
   };
 
   return (
+    <GradientBackground>
     <View style={styles.container}>
       <Text style={styles.statics}>Congratulations!! you have won</Text>
       <Text style={styles.statics}>Total Coins won: 4</Text>
@@ -27,6 +29,7 @@ const WinScreen: React.FC = () => {
                 </View>
               </Pressable>
     </View>
+    </GradientBackground>
   );
 };
 
@@ -35,7 +38,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1F1F22',
   },
   statics: {
     color: "#FFFFFF",

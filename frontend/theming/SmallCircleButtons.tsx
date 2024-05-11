@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     borderRadius: 50,
-    backgroundColor: "#0951BD", // Customize the button color
+    backgroundColor: "#4070b8", // Customize the button color
     margin: 10,
   },
   buttonTitle: {

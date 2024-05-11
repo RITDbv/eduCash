@@ -32,7 +32,7 @@ const FullWidthCard: React.FC<CardProps> = ({ title, description, imageUrl, scre
 
 const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: 'lightgray', // Customize the card background color
+    backgroundColor: '#a7a7a7a3', // Customize the card background color
     padding: 20,
     width: '100%',
     marginBottom: 20,

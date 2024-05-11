@@ -109,14 +109,23 @@ const App: React.FC = () => {
               <UserDispatchContext.Provider value={userDispatch}>
                 <MessagesContext.Provider value={messages}>
                   <MessagesDispatchContext.Provider value={messagesDispatch}>
-                    <Stack.Navigator>
+                    <Stack.Navigator 
+                    screenOptions={{
+                      headerStyle: {
+                        backgroundColor: '#444444', // Change this color to the desired red color
+                      },
+                      headerTintColor: 'white', // Change this color to the desired text color
+                      headerTitleStyle: {
+                        fontWeight: 'bold', // Optional: Change this style if needed
+                      },
+                    }}>
                       <Stack.Screen
                         name="landing screen"
                         component={LandingPageScreen}
                         options={({ navigation }) => ({
                           headerRight: () => (
                             <View style={{ flexDirection: "row" }}>
-                              {user?.userType === "caretaker" && (
+                              {/* {user?.userType === "caretaker" && (
                                 <Pressable
                                   onPress={() =>
                                     navigation.navigate("ParentDashboard")
@@ -128,7 +137,7 @@ const App: React.FC = () => {
                                     icon={faCog}
                                   />
                                 </Pressable>
-                              )}
+                              )} */}
                               <Pressable
                                 onPress={() => signOut()}
                                 style={{ margin: 20 }}
@@ -161,7 +170,16 @@ const App: React.FC = () => {
               </UserDispatchContext.Provider>
             </UserContext.Provider>
           ) : (
-            <Stack.Navigator>
+            <Stack.Navigator
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: '#444444', // Change this color to the desired red color
+              },
+              headerTintColor: 'white', // Change this color to the desired text color
+              headerTitleStyle: {
+                fontWeight: 'bold', // Optional: Change this style if needed
+              },
+            }}>
               <Stack.Screen
                 options={{ headerShown: false }}
                 name="Login"

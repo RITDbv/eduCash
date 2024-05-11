@@ -1,8 +1,9 @@
 // ProfileScreen.tsx
 
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-import GameStatsChart from '../theming/GameStatsChart';
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
+import GameStatsChart from "../theming/GameStatsChart";
+import GradientBackground from "../theming/GradientBackground";
 
 const ProfileScreen: React.FC = () => {
   // Fetch game statistics (replace with actual data)
@@ -10,23 +11,28 @@ const ProfileScreen: React.FC = () => {
   const gamesLost = 5;
 
   return (
-    <View style={styles.container}>
-      <Image
-        source={{ uri: 'https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512' }}
-        style={styles.profileImage}
-      />
-      <Text style={styles.statics}>Total Games Played: {gamesWon + gamesLost}</Text>
-      <GameStatsChart gamesWon={gamesWon} gamesLost={gamesLost} />
-    </View>
+    <GradientBackground>
+      <View style={styles.container}>
+        <Image
+          source={{
+            uri: "https://cdn.iconscout.com/icon/free/png-512/free-avatar-370-456322.png?f=webp&w=512",
+          }}
+          style={styles.profileImage}
+        />
+        <Text style={styles.statics}>
+          Total Games Played: {gamesWon + gamesLost}
+        </Text>
+        <GameStatsChart gamesWon={gamesWon} gamesLost={gamesLost} />
+      </View>
+    </GradientBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#1F1F22',
+    alignItems: "center",
+    justifyContent: "center",
   },
   profileImage: {
     width: 100,
@@ -35,8 +41,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   statics: {
-    color: "#FFFFFF"
-  }
+    color: "#FFFFFF",
+  },
 });
 
 export default ProfileScreen;

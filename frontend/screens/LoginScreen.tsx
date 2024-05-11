@@ -5,6 +5,7 @@ import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { Button, TextInput, Text, DeferredButton } from "../ui";
 import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import useTheme from "../theming/UseTheme";
+import GradientBackground from '../theming/GradientBackground';
 
 interface Props {
   navigation: NavigationProp<ParamListBase>;
@@ -35,7 +36,8 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", padding: 20, backgroundColor: "#1F1F22" }}>
+    <GradientBackground>
+    <View style={{ flex: 1, justifyContent: "center", padding: 20}}>
       <Text type="h1" style={{ marginBottom: 20 }}>
         Log in
       </Text>
@@ -75,6 +77,7 @@ const LoginScreen: React.FC<Props> = ({ navigation }) => {
       />
       </View>
     </View>
+    </GradientBackground>
   );
 };
 

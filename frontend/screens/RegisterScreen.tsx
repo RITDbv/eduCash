@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import GradientBackground from "../theming/GradientBackground";
 
 const RegisterScreen = () => {
   const [firstName, setFirstName] = useState("");
@@ -96,28 +97,27 @@ const RegisterScreen = () => {
     }
 
     if (Object.keys(newErrors).length === 0 && emailError === "") {
-
-      console.log("fist name", JSON.stringify(firstName))
+      console.log("fist name", JSON.stringify(firstName));
 
       const allFormData = {
-        "stepOneInfo": {
-            "relationship": "vader",
-            "numberOfKids": "1",
-            "firstName": JSON.stringify(firstName),
-            "lastName": JSON.stringify(lastName),
-            "birthdate": JSON.stringify(birthdate),
-            "email": email,
-            "password": password
+        stepOneInfo: {
+          relationship: "vader",
+          numberOfKids: "1",
+          firstName: JSON.stringify(firstName),
+          lastName: JSON.stringify(lastName),
+          birthdate: JSON.stringify(birthdate),
+          email: email,
+          password: password,
         },
-        "stepTwoInfo": [
-            {
-                "kidNumber": 1,
-                "kidName": "ffff",
-                "kidBirthdate": "01-01-2000",
-                "kidGender": "Jongen"
-            }
-        ]
-    }
+        stepTwoInfo: [
+          {
+            kidNumber: 1,
+            kidName: "ffff",
+            kidBirthdate: "01-01-2000",
+            kidGender: "Jongen",
+          },
+        ],
+      };
 
       const body = JSON.stringify(allFormData);
       const headers = {
@@ -195,101 +195,103 @@ const RegisterScreen = () => {
   };
 
   return (
-    <View style={{ padding: 20, backgroundColor: "#1F1F22" }}>
-      <Text style={styles.label}>Voornaam</Text>
-      <TextInput
-        placeholder="Jouw voornaam"
-        value={firstName}
-        onChangeText={(text) => setFirstName(text)}
-      />
-      {!!errors.firstName && (
-        <Text style={styles.errorMessage}>{errors.firstName}</Text>
-      )}
+    <GradientBackground>
+      <View style={{ flex: 1, justifyContent: "center", padding: 20}}>
+        <Text style={styles.label}>Voornaam</Text>
+        <TextInput
+          placeholder="Jouw voornaam"
+          value={firstName}
+          onChangeText={(text) => setFirstName(text)}
+        />
+        {!!errors.firstName && (
+          <Text style={styles.errorMessage}>{errors.firstName}</Text>
+        )}
 
-      <Text style={styles.label}>Achternaam</Text>
-      <TextInput
-        placeholder="Jouw achternaam"
-        value={lastName}
-        onChangeText={(text) => setLastName(text)}
-      />
-      {!!errors.lastName && (
-        <Text style={styles.errorMessage}>{errors.lastName}</Text>
-      )}
+        <Text style={styles.label}>Achternaam</Text>
+        <TextInput
+          placeholder="Jouw achternaam"
+          value={lastName}
+          onChangeText={(text) => setLastName(text)}
+        />
+        {!!errors.lastName && (
+          <Text style={styles.errorMessage}>{errors.lastName}</Text>
+        )}
 
-      <Text style={styles.label}>Geboortedatum</Text>
-      <TextInput
-        placeholder="Jouw geboortedatum"
-        value={birthdate}
-        onChangeText={handleBirthdateChange}
-        keyboardType="numeric"
-        icon={faCalendar}
-      />
-      {!!errors.birthdate && (
-        <Text style={styles.errorMessage}>{errors.birthdate}</Text>
-      )}
+        <Text style={styles.label}>Geboortedatum</Text>
+        <TextInput
+          placeholder="Jouw geboortedatum"
+          value={birthdate}
+          onChangeText={handleBirthdateChange}
+          keyboardType="numeric"
+          icon={faCalendar}
+        />
+        {!!errors.birthdate && (
+          <Text style={styles.errorMessage}>{errors.birthdate}</Text>
+        )}
 
-      <Text style={styles.label}>E-mail</Text>
-      <TextInput
-        placeholder="Jouw e-mailadres"
-        value={email}
-        onChangeText={handleEmailCheck}
-        keyboardType="email-address"
-        icon={faEnvelope}
-      />
-      {!!emailError && <Text style={styles.errorMessage}>{emailError}</Text>}
+        <Text style={styles.label}>E-mail</Text>
+        <TextInput
+          placeholder="Jouw e-mailadres"
+          value={email}
+          onChangeText={handleEmailCheck}
+          keyboardType="email-address"
+          icon={faEnvelope}
+        />
+        {!!emailError && <Text style={styles.errorMessage}>{emailError}</Text>}
 
-      <Text style={styles.label}>Wachtwoord kiesen</Text>
-      <TextInput
-        placeholder="Jouw wachtwoord"
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-        secureTextEntry={!showPassword}
-        icon={faLock}
-      />
-      {/* Show or hide the password */}
-      {/* <TouchableOpacity onPress={toggleShowPassword}>
+        <Text style={styles.label}>Wachtwoord kiesen</Text>
+        <TextInput
+          placeholder="Jouw wachtwoord"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          secureTextEntry={!showPassword}
+          icon={faLock}
+        />
+        {/* Show or hide the password */}
+        {/* <TouchableOpacity onPress={toggleShowPassword}>
         <Text>{showPassword ? "Hide" : "Show"}</Text>
       </TouchableOpacity> */}
-      {!!errors.password && (
-        <Text style={styles.errorMessage}>{errors.password}</Text>
-      )}
+        {!!errors.password && (
+          <Text style={styles.errorMessage}>{errors.password}</Text>
+        )}
 
-      <Text style={styles.label}>Wachtwoord herhalen</Text>
-      <TextInput
-        placeholder="Jouw wachtwoord"
-        value={confirmPassword}
-        onChangeText={(text) => setConfirmPassword(text)}
-        secureTextEntry={!showConfirmPassword}
-        icon={faLock}
-      />
-      {/* Show or hide the password */}
-      {/* <TouchableOpacity onPress={toggleShowConfirmPassword}>
+        <Text style={styles.label}>Wachtwoord herhalen</Text>
+        <TextInput
+          placeholder="Jouw wachtwoord"
+          value={confirmPassword}
+          onChangeText={(text) => setConfirmPassword(text)}
+          secureTextEntry={!showConfirmPassword}
+          icon={faLock}
+        />
+        {/* Show or hide the password */}
+        {/* <TouchableOpacity onPress={toggleShowConfirmPassword}>
         <Text>{showConfirmPassword ? "Hide" : "Show"}</Text>
       </TouchableOpacity> */}
-      {!!errors.confirmPassword && (
-        <Text style={styles.errorMessage}>{errors.confirmPassword}</Text>
-      )}
-
-      <View
-        style={{ flex: 1, alignItems: "stretch", justifyContent: "center" }}
-      >
-        <View style={{ flexDirection: "row", marginBottom: 20 }}>
-          <CheckBox
-            value={agree}
-            onValueChange={(value) => setAgree(value)}
-            style={{ alignSelf: "center" }}
-          />
-          <Text style={{ margin: 8 }}>
-            Ik ga akkoord met de algemene voorwaarden
-          </Text>
-        </View>
-        {!!errors.agree && (
-          <Text style={styles.errorMessage}>{errors.agree}</Text>
+        {!!errors.confirmPassword && (
+          <Text style={styles.errorMessage}>{errors.confirmPassword}</Text>
         )}
-      </View>
 
-      <Button label="Registreren" onPress={handleSubmit} />
-    </View>
+        <View
+          style={{ flex: 1, alignItems: "stretch", justifyContent: "center" }}
+        >
+          <View style={{ flexDirection: "row", marginBottom: 20 }}>
+            <CheckBox
+              value={agree}
+              onValueChange={(value) => setAgree(value)}
+              style={{ alignSelf: "center" }}
+            />
+            <Text style={{ margin: 8 }}>
+              Ik ga akkoord met de algemene voorwaarden
+            </Text>
+          </View>
+          {!!errors.agree && (
+            <Text style={styles.errorMessage}>{errors.agree}</Text>
+          )}
+        </View>
+
+        <Button label="Registreren" onPress={handleSubmit} />
+      </View>
+    </GradientBackground>
   );
 };
 

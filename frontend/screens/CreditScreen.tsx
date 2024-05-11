@@ -4,6 +4,7 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import GameStatsChart from '../theming/GameStatsChart';
 import FullWidthCard from '../theming/FullWidthCard';
+import GradientBackground from '../theming/GradientBackground';
 
 const CreditScreen: React.FC = () => {
   // Fetch game statistics (replace with actual data)
@@ -11,6 +12,7 @@ const CreditScreen: React.FC = () => {
   const gamesLost = 5;
 
   return (
+    <GradientBackground>
     <View style={styles.container}>
       <Text style={styles.statics}>Your credit is: 500 Coins</Text>
       <FullWidthCard
@@ -26,12 +28,12 @@ const CreditScreen: React.FC = () => {
           screenName="TicTacToe"
         />
     </View>
+    </GradientBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#1F1F22',
     padding: 20,
     textAlign: "center"
   },
